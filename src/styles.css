@@ -1,1 +1,48 @@
-/* You can add global styles to this file, and also import other style files */
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.maincontainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    width: 100%;
+    
+}
+
+.sidemenu {
+    height: 100vh;
+    background-color: lightcoral;
+    color: black;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    div {
+        cursor: pointer;
+    }
+}
+
+.rightbox {
+    width: 80%;
+}
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 60%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}

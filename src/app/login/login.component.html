@@ -1,0 +1,23 @@
+
+<div>
+  <form *ngIf="IsLogin">
+    <p>Login</p>
+    <input [(ngModel)]="userForm.username" [ngModelOptions]="{standalone: true}" type="text" placeholder="Username">
+    <input [(ngModel)]="userForm.password" [ngModelOptions]="{standalone: true}" type="password" placeholder="Password">
+      <div>
+      <button (click)="OnLogin()">Login</button>
+      <button (click)="IsLogin = false">Create an account?</button>
+    </div>
+  </form>
+
+
+  <form *ngIf="!IsLogin">
+    <p>Register</p>
+    <input [(ngModel)]="userForm.username" [ngModelOptions]="{standalone: true}"  type="text" placeholder="Username">
+    <input [(ngModel)]="userForm.password" [ngModelOptions]="{standalone: true}"  type="password" placeholder="Password">
+    <div>
+      <button (click)="OnRegister()">Register</button>
+      <button (click)="IsLogin = true">Already have an account?</button>
+    </div>
+  </form>
+</div>

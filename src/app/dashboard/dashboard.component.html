@@ -1,0 +1,51 @@
+
+<nav>
+  <button (click)="logout()">Logout</button>
+</nav>
+<div class="maincontainer">
+  <div class="sidemenu">
+    <div (click)="IsRegisterForm = true">Register Form</div>
+    <div (click)="IsRegisterForm = false">List</div>
+  </div>
+
+  <div class="rightbox">
+    <div *ngIf="IsRegisterForm" class="registerform">
+      <p>Register Form</p>
+      <form>
+        <input type="text" placeholder="Name" [(ngModel)]="registerForm.name" [ngModelOptions]="{standalone: true}" >
+        <input type="text" placeholder="Email" [(ngModel)]="registerForm.email" [ngModelOptions]="{standalone: true}" >
+        <input type="text" placeholder="Phone" [(ngModel)]="registerForm.phone" [ngModelOptions]="{standalone: true}" >
+        <input type="text" placeholder="City" [(ngModel)]="registerForm.city" [ngModelOptions]="{standalone: true}" >        
+        <button type="button" *ngIf="currentIndex === null" (click)="submit()">Submit</button>
+        <button type="button" *ngIf="currentIndex !== null" (click)="updateListForm()">Update</button>
+      </form>
+    </div>
+    <div *ngIf="!IsRegisterForm" class="listAll">
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>City</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of list; let i = index">
+            <td>{{item.name}}</td>
+            <td>{{item.email}}</td>
+            <td>{{item.phone}}</td>
+            <td>{{item.city}}</td>
+            <td>
+              <button (click)="updateData(item, i)">Update</button>
+              <button (click)="deleteData(i)">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+
